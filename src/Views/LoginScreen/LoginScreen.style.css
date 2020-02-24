@@ -1,0 +1,92 @@
+.main-holder {
+    display: flex;
+    min-height: 100vh;
+    min-width: 100%;
+    background-image: linear-gradient(to bottom right, rgba(241, 78, 37, 0.911), white);
+    align-items: center;
+    justify-content: center;
+}
+
+.main-card-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 400px;
+    height: 400px;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.login-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-details-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.forget-password-holder {
+    margin-top: 10px;
+    text-align: left;
+    cursor: pointer;
+    color: #fd8f78;
+}
+
+.create-account-holder {
+    text-align: right;
+    margin-top: 10px;
+    cursor: pointer;
+    color: #fd8f78;
+}
+
+.login-extra-holder {
+    width: '100%';
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.textinput {
+    width: 320px;
+    border-radius: 5px;
+    box-shadow: 0px;
+    border-width: 1px;
+    padding-left: 10px;
+    margin: 10px !important;
+}
+
+.login-button-holder {
+    margin-top: 40px;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #fd8f78;
+    font-size: 12pt;
+    border: 0px;
+    color: white;
+    border-style: none;
+    border-color: transparent;
+}
+
+.forgot-buttons-holder {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.heading-holder {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.image-holder {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}

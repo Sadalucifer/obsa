@@ -1,0 +1,74 @@
+.header {
+    height: 100px;
+    width: calc(100%-240px);
+    background-color: #fd8f78;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-left: 200px;
+}
+
+.header-tab {
+    margin-right: 40px;
+    font-size: 14pt;
+}
+
+.top-bar {
+    flex-shrink: 0;
+}
+
+.app-bar-shift {
+    width: calc(100%-240px);
+    margin-left: 240px !important;
+}
+
+.drawer {
+    width: 240px;
+}
+
+.root {
+    display: flex;
+}
+
+.drawer-header {
+    height: 70px;
+    width: 240px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border: 1px;
+}
+
+.list-item {
+    cursor: pointer;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-right: 5px solid transparent;
+}
+
+.list-item span {
+    color: #000000;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    font-size: 17px;
+    margin-left: 40px;
+}
+
+.list-container {
+    margin-top: 30px;
+}
+
+.list-item-active {
+    border-left: 20px;
+    background-color: rgba(98, 73, 211, 0.07);
+    border-right: 7px solid #fd8f78;
+}
+
+.main-home-component {
+    height: 100%;
+    width: 100%;
+}

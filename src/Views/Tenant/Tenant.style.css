@@ -1,0 +1,21 @@
+.tenant-filter-by-data {
+    width: 300px;
+}
+
+.tenant-search-holder {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width:768px) {
+    .tenant-filter-by-data {
+        width: 120px;
+        margin-top: 30px;
+    }
+    .tenant-search-holder {
+        width: 120px
+    }
+    .tenant-table-row-holder {
+        width: 50px
+    }
+}

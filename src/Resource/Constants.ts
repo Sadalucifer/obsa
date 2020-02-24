@@ -1,0 +1,5 @@
+export const Constants = {
+    LOGGED_IN_USER: 'LOGGED_IN_USER',
+    LOGGED_IN_TOKEN: 'LOGGED_IN_TOKEN',
+    LOGGED_IN_USER_ID: 'LOGGED_IN_USER_ID'
+}

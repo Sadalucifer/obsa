@@ -1,0 +1,22 @@
+.admin-filter-by-data {
+    width: 300px;
+}
+
+.admin-search-holder {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width:768px) {
+    .admin-filter-by-data {
+        width: 120px;
+        margin-top: 10px;
+    }
+    .admin-search-holder {
+        width: 120px;
+        margin-bottom: 20px;
+    }
+    .admin-table-row-holder {
+        width: 50px
+    }
+}

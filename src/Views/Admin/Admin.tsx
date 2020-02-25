@@ -63,9 +63,8 @@ export default class Admin extends ComponentBase<any, IAdminState> {
                                             variant='standard'
                                             label='Search...'
                                             className='admin-search-holder'
-                                            onChange={(ev) => { }}
-                                            onFocus={(event) => {
-
+                                            onChange={(event) => {
+                                                this.viewModel.set('searchData', event.target.value)
                                             }}
                                             onInput={(event: any) => {
                                                 event.target.value = event.target.value.slice(0, 30)
@@ -74,12 +73,17 @@ export default class Admin extends ComponentBase<any, IAdminState> {
                                                 endAdornment: <InputAdornment position='end'>
                                                     <IconButton
                                                         onClick={() => {
-
+                                                            this.viewModel.load()
                                                         }}
                                                     >
                                                         < SearchIcon />
                                                     </IconButton>
                                                 </InputAdornment>
+                                            }}
+                                            onKeyDown={(event) => {
+                                                if (event.key === 'Enter') {
+                                                    this.viewModel.load()
+                                                }
                                             }}
                                         />
                                     </div>
@@ -90,6 +94,7 @@ export default class Admin extends ComponentBase<any, IAdminState> {
                                             value={this.state.filterData}
                                             onChange={(event) => { this.viewModel.set('filterData', event.target.value) }}
                                             className='admin-filter-by-data'
+                                            placeholder='Filter By...'
                                         >
                                             <MenuItem value='None'>None</MenuItem>
                                             <MenuItem value='Name'>Name</MenuItem>
@@ -186,12 +191,13 @@ export default class Admin extends ComponentBase<any, IAdminState> {
                 <DialogContent>
                     <div style={{ width: '100%', paddingLeft: 10, paddingRight: 10 }}>
 
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <span style={{ color: 'red' }}>{this.state.adminNameError && this.state.adminNameError.message}</span>
+                        <div style={{ display: 'flex', marginLeft: 12 }}>
+                            <span style={{ color: 'red', fontSize: 12 }}>{this.state.adminNameError && this.state.adminNameError.message}</span>
                         </div>
                         <TextField
                             variant='outlined'
                             label='Name'
+                            required={true}
                             style={{ width: '100%', marginTop: 20 }}
                             onChange={(ev) => { this.viewModel.set('adminName', ev.target.value) }}
                             onFocus={(event) => {
@@ -205,6 +211,7 @@ export default class Admin extends ComponentBase<any, IAdminState> {
                         <TextField
                             variant='outlined'
                             label='Email'
+                            required={true}
                             style={{ width: '100%', marginTop: 20 }}
                             onChange={(ev) => { this.viewModel.set('adminEmail', ev.target.value) }}
                             onFocus={(event) => {
@@ -214,14 +221,15 @@ export default class Admin extends ComponentBase<any, IAdminState> {
                                 event.target.value = event.target.value.slice(0, 30)
                             }}
                         />
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <span style={{ color: 'red' }}>{this.state.adminEmailError && this.state.adminEmailError.message}</span>
+                        <div style={{ display: 'flex', marginLeft: 12 }}>
+                            <span style={{ color: 'red', fontSize: 12 }}>{this.state.adminEmailError && this.state.adminEmailError.message}</span>
                         </div>
 
                         <TextField
                             variant='outlined'
                             label='Phone Number'
                             type='number'
+                            required={true}
                             style={{ width: '100%', marginTop: 20 }}
                             onChange={(ev) => { this.viewModel.set('adminPhoneNumber', ev.target.value) }}
                             onFocus={(event) => {
@@ -231,8 +239,8 @@ export default class Admin extends ComponentBase<any, IAdminState> {
                                 event.target.value = event.target.value.slice(0, 10)
                             }}
                         />
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <span style={{ color: 'red' }}>{this.state.adminPhoneNumberError && this.state.adminPhoneNumberError.message}</span>
+                        <div style={{ display: 'flex', marginLeft: 12 }}>
+                            <span style={{ color: 'red', fontSize: 12 }}>{this.state.adminPhoneNumberError && this.state.adminPhoneNumberError.message}</span>
                         </div>
 
                     </div>

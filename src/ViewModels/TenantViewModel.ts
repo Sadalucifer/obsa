@@ -136,7 +136,7 @@ export class TenantViewmodel extends BaseViewModel {
         if (this.validationUtils.isEmpty(this.state.tenantOrganizationName)) {
             this.setState({
                 ...this.state,
-                tenantOrganizationNameError: Error('Please enter name ')
+                tenantOrganizationNameError: Error('Please enter organization name ')
             })
         } else if (this.validationUtils.isEmpty(this.state.tenantEmail)) {
             this.setState({

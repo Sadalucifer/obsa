@@ -98,7 +98,7 @@ export class UserRepository extends BaseRepository {
 
     async invitetAdmin(data: any) {
         try {
-            const response = await this.apiManager.inviteTenant(data)
+            const response = await this.apiManager.inviteAdmin(data)
             return response
         } catch (error) {
             throw error

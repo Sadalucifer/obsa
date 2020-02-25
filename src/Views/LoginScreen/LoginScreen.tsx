@@ -61,8 +61,8 @@ export default class LoginScreen extends ComponentBase<any, LoginState> {
                                     this.viewModel.set('emailValidateError', undefined)
                                 }}
                             />
-                            < div style={{ width: '100%', justifyContent: 'center', display: 'flex' }}>
-                                <span style={{ color: 'red' }}>{this.state.emailValidateError && this.state.emailValidateError.message}</span>
+                            < div style={{ width: '100%', display: 'flex', marginLeft: 12 }}>
+                                <span style={{ color: 'red', fontSize: 12 }}>{this.state.emailValidateError && this.state.emailValidateError.message}</span>
                             </div>
 
                             <TextField
@@ -90,8 +90,8 @@ export default class LoginScreen extends ComponentBase<any, LoginState> {
                                 }}
                             />
 
-                            <div style={{ width: '100%', justifyContent: 'center', display: 'flex' }}>
-                                <span style={{ color: 'red' }}>{this.state.passwordValidateError && this.state.passwordValidateError.message}</span>
+                            <div style={{ width: '100%', display: 'flex', marginLeft: 12 }}>
+                                <span style={{ color: 'red', fontSize: 12 }}>{this.state.passwordValidateError && this.state.passwordValidateError.message}</span>
                             </div>
 
                         </div>

@@ -80,6 +80,11 @@ export class Tenant extends ComponentBase<any, ITenantState> {
                                                 </IconButton>
                                             </InputAdornment>
                                         }}
+                                        onKeyDown={(event) => {
+                                            if (event.key === 'Enter') {
+                                                this.viewModel.load()
+                                            }
+                                        }}
                                     />
                                 </div>
 
@@ -88,6 +93,7 @@ export class Tenant extends ComponentBase<any, ITenantState> {
                                         className='tenant-filter-by-data'
                                         value={this.state.filterData}
                                         onChange={(event) => { this.viewModel.set('filterData', event.target.value) }}
+                                        placeholder='Filter By...'
                                     >
                                         <MenuItem value='None'>None</MenuItem>
                                         <MenuItem value='Name'>Name</MenuItem>
@@ -173,8 +179,8 @@ export class Tenant extends ComponentBase<any, ITenantState> {
                 <DialogContent>
                     <div style={{ width: '100%', paddingLeft: 10, paddingRight: 10 }}>
 
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <span style={{ color: 'red' }}>{this.state.tenantOrganizationNameError && this.state.tenantOrganizationNameError.message}</span>
+                        <div style={{ display: 'flex', marginLeft: 12 }}>
+                            <span style={{ color: 'red', fontSize: 12 }}>{this.state.tenantOrganizationNameError && this.state.tenantOrganizationNameError.message}</span>
                         </div>
                         <TextField
                             variant='outlined'
@@ -207,8 +213,8 @@ export class Tenant extends ComponentBase<any, ITenantState> {
                                 event.target.value = event.target.value.slice(0, 30)
                             }}
                         />
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <span style={{ color: 'red' }}>{this.state.tenantEmailError && this.state.tenantEmailError.message}</span>
+                        <div style={{ display: 'flex', marginLeft: 12 }}>
+                            <span style={{ color: 'red', fontSize: 12 }}>{this.state.tenantEmailError && this.state.tenantEmailError.message}</span>
                         </div>
 
                         <TextField
@@ -227,14 +233,15 @@ export class Tenant extends ComponentBase<any, ITenantState> {
                                 event.target.value = event.target.value.slice(0, 10)
                             }}
                         />
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <span style={{ color: 'red' }}>{this.state.tenantAccountOwnerNameError && this.state.tenantAccountOwnerNameError.message}</span>
+                        <div style={{ display: 'flex', marginLeft: 12 }}>
+                            <span style={{ color: 'red', fontSize: 12 }}>{this.state.tenantAccountOwnerNameError && this.state.tenantAccountOwnerNameError.message}</span>
                         </div>
 
                         <TextField
                             variant='outlined'
-                            label='PhoneNumber'
+                            label='Phone Number'
                             type='number'
+                            required={true}
                             style={{ width: '100%', marginTop: 20 }}
                             onChange={(ev) => {
                                 this.viewModel.set('tenantPhoneNumber', ev.target.value)
@@ -246,8 +253,8 @@ export class Tenant extends ComponentBase<any, ITenantState> {
                                 event.target.value = event.target.value.slice(0, 10)
                             }}
                         />
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <span style={{ color: 'red' }}>{this.state.tenantPhoneNumberError && this.state.tenantPhoneNumberError.message}</span>
+                        <div style={{ display: 'flex', marginLeft: 12 }}>
+                            <span style={{ color: 'red', fontSize: 12 }}>{this.state.tenantPhoneNumberError && this.state.tenantPhoneNumberError.message}</span>
                         </div>
 
                     </div>

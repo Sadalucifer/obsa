@@ -104,7 +104,7 @@ export default class Admin extends ComponentBase<any, IAdminState> {
                                         onClick={() => {
                                             this.viewModel.set('openAdminInviteForm', true)
                                         }}
-                                        style={{ backgroundColor: '#fd8f78', color: '#ffffff' }}
+                                        style={{ backgroundColor: '#fd8f78', color: '#ffffff', marginTop: 15 }}
                                     >
                                         Invite Admin
                                     </Button>
@@ -114,15 +114,11 @@ export default class Admin extends ComponentBase<any, IAdminState> {
                                 <Table stickyHeader aria-label='sticky table'>
                                     <TableHead>
                                         <TableRow>
-                                        </TableRow>
-                                    </TableHead>
-                                    <TableHead className='admin-row-header'>
-                                        <TableRow>
                                             {this.viewModel.getTableColumnList().map((column: any) => (
                                                 <TableCell
                                                     key={`${column.id}-${column.name}`}
                                                 >
-                                                    <span className='column-header-table-listing'>{column.name}</span>
+                                                    <span>{column.name}</span>
                                                 </TableCell>
                                             ))}
                                         </TableRow>
@@ -134,17 +130,17 @@ export default class Admin extends ComponentBase<any, IAdminState> {
                                                     <TableRow hover role='checkbox' tabIndex={-1} key={`${rowIndex}-${row.name}`}>
                                                         {this.viewModel.getTableColumnList().map((column: any, index: any) => {
                                                             const value = row[column.id]
-                                                            if (column.id === 'status') {
-                                                                return < TableCell key={`${row.id}` + index} className='listing-common-style-header' >
+                                                            if (column.id === 'action') {
+                                                                return < TableCell key={`${row.id}` + index}>
                                                                     <button
                                                                         disabled={true}
-                                                                        style={{ height: 25, backgroundColor: '#fd8f78', border: 0, boxShadow: '0 0 0 0', borderRadius: 10 }}
+                                                                        style={{ height: 25, width: 60, backgroundColor: '#fd8f78', border: 0, boxShadow: '0 0 0 0', borderRadius: 10 }}
                                                                     >
                                                                         <label style={{ color: '#fff', cursor: 'inherit' }}>{value}</label>
                                                                     </button>
                                                                 </TableCell>
                                                             } else {
-                                                                return < TableCell key={`${row.id}` + index} className='listing-common-style-header' >
+                                                                return < TableCell key={`${row.id}` + index}>
                                                                     {value}
                                                                 </TableCell>
                                                             }

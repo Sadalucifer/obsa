@@ -60,7 +60,11 @@ export class UserRepository extends BaseRepository {
                 isLoading: false
             })
         } catch (error) {
-            throw error
+            this.setState({
+                ...this.state,
+                isLoading: false,
+                error
+            })
         }
     }
 

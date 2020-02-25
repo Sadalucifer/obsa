@@ -1,10 +1,10 @@
 .admin-filter-by-data {
-    width: 300px;
+    width: 400px;
+    margin-top: 15px;
 }
 
 .admin-search-holder {
-    width: 300px;
-    margin-bottom: 20px;
+    width: 400px;
 }
 
 @media only screen and (max-width:768px) {
@@ -14,9 +14,18 @@
     }
     .admin-search-holder {
         width: 120px;
-        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width:375px) {
+    .admin-filter-by-data {
+        width: 50px;
+        margin-top: 10px;
+    }
+    .admin-search-holder {
+        width: 90px
     }
     .admin-table-row-holder {
-        width: 50px
+        width: 100px;
     }
 }

@@ -59,11 +59,13 @@ export class ApiManager {
     async autoAuthenticate() {
         try {
             const headers = await this.defaultHeaders()
-            const response = await axios.post(`admin/auto-authenticate`, null, {
+            const response = await axios.post(`/admin/auto-authenticate`, null, {
                 headers
             })
             return response.data
         } catch (error) {
+            console.log('auto---error---', error)
+
             const processError = this.processError(error)
             if (processError) {
                 throw processError
@@ -77,9 +79,9 @@ export class ApiManager {
             const response: AxiosResponse = await axios.get(`tenants?pageIndex=${data.pageIndex}&pageSize=${data.pageSize}&searchKey=${data.searchData}`, {
                 headers
             })
+            console.log('in Tenant', response)
             return response.data
         } catch (error) {
-            console.log('in Tenant Error', error)
             const processorError = this.processError(error)
             if (processorError) {
                 throw processorError
@@ -110,8 +112,9 @@ export class ApiManager {
             const response = await axios.post('/invite-tenant', data, {
                 headers
             })
-            return response
+            return response.data
         } catch (error) {
+
             const processorError = this.processError(error)
             if (processorError) {
                 throw processorError
@@ -122,10 +125,12 @@ export class ApiManager {
     async inviteAdmin(data: any) {
         try {
             const headers = await this.defaultHeaders()
+            console.log('in Admin Before', data)
             const response = await axios.post('/invite-admin', data, {
                 headers
             })
-            return response
+            console.log('---invite Admin---', response.data)
+            return response.data
         } catch (error) {
             const processorError = this.processError(error)
             if (processorError) {

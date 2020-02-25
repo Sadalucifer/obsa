@@ -56,7 +56,7 @@ export class Tenant extends ComponentBase<any, ITenantState> {
 
                 {this.state.tenants && this.state.tenants.length ?
                     <Paper style={{ width: '100%', boxShadow: '0 4px 10px rgba(0, 0, 0, .6)' }}>
-                        <div style={{ margin: '10px', borderRadius: '5px', maxHeight: '440px', overflowY: 'auto' }}>
+                        <div style={{ margin: '10px', borderRadius: '5px', overflowY: 'auto' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 80 }} >
                                 <div >
                                     <TextField
@@ -83,7 +83,7 @@ export class Tenant extends ComponentBase<any, ITenantState> {
                                     />
                                 </div>
 
-                                <div style={{ height: 40 }}>
+                                <div >
                                     <Select
                                         className='tenant-filter-by-data'
                                         value={this.state.filterData}
@@ -104,38 +104,34 @@ export class Tenant extends ComponentBase<any, ITenantState> {
                                         onClick={() => {
                                             this.viewModel.set('openInviteTenantForm', true)
                                         }}
-                                        style={{ backgroundColor: '#fd8f78', color: '#ffffff' }}
+                                        style={{ backgroundColor: '#fd8f78', color: '#ffffff', marginTop: 15 }}
                                     >
                                         Invite Tenant
                                     </Button>
                                 </div>
                             </div>
+
                             <Table stickyHeader aria-label='sticky table'>
-                                <TableHead>
-                                    <TableRow>
-                                    </TableRow>
-                                </TableHead>
-                                <TableHead className='tenant-table-row-holder'>
+                                <TableHead >
                                     <TableRow>
                                         {this.viewModel.getTableColumnList().map((column: any) => (
-                                            <TableCell
-                                                key={`${column.id}-${column.name}`}
-                                            >
-                                                <span className='column-header-table-listing'>{column.name}</span>
+                                            <TableCell key={`${column.id}-${column.name}`}>
+                                                {column.name}
                                             </TableCell>
                                         ))}
                                     </TableRow>
                                 </TableHead>
-                                <TableBody className='tenant-table-row-holder'>
+                                <TableBody>
                                     {
                                         this.state.tenants && this.state.tenants.map((row: any, rowIndex: any) => {
                                             return (
                                                 <TableRow hover role='checkbox' tabIndex={-1} key={`${rowIndex}-${row.name}`}>
                                                     {this.viewModel.getTableColumnList().map((column: any, index: any) => {
                                                         const value = row[column.id]
-                                                        return < TableCell key={`${row.id}` + index} className='listing-common-style-header' >
+                                                        return < TableCell key={`${row.id}` + index}>
                                                             {value}
                                                         </TableCell>
+
                                                     })}
                                                 </TableRow>
                                             )
@@ -160,7 +156,7 @@ export class Tenant extends ComponentBase<any, ITenantState> {
                                 this.viewModel.load()
                             }}
                         />
-                    </Paper>
+                    </Paper >
                     : <EmptyView />
                 }
             </HomeComponent>

@@ -20,12 +20,12 @@ export default class App extends ComponentBase<any, IBaseState> {
         this.userRepository = DependencyInjector.default().provideUserRepository()
     }
 
-    // async componentDidMount() {
-    //     this.userRepository.autoAuthenticate()
-    //     if (this.props.location && this.props.location.pathname) {
-    //         this.props.history.replace(this.props.location.pathname, this.props.location.state)
-    //     }
-    // }
+    async componentDidMount() {
+        this.userRepository.autoAuthenticate()
+        if (this.props.location && this.props.location.pathname) {
+            this.props.history.replace(this.props.location.pathname, this.props.location.state)
+        }
+    }
 
     render() {
         if (this.state.isLoading) {

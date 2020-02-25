@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
+import { render } from 'react-dom'
 
 export interface ProtectedRouteProps {
     path: any,
@@ -13,12 +14,11 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ isLoggedIn, component: 
         <Route
             {...rest}
             render={(props: any) => {
+                const location: any = props.location
                 if (!isLoggedIn) {
                     return <Redirect
-                        to={{
-                            pathname: '/login'
-                            // calledRoute: { from: props.location }
-                        }}
+                        to={'/login'}
+
                     />
                 }
                 return Component ? <Component {...props} /> : render(props)

@@ -88,16 +88,16 @@ export class TenantViewmodel extends BaseViewModel {
             }
             const response = await this.userRepository.getAllTenants(data)
             let tenants = []
-            console.log('in Model----', response)
-            if (response && response.listTenants && response.listTenants.length > 0) {
-                tenants = response.listTenants.map((tenant: any) => {
+            if (response && response.listTenants && response.listTenants.data && response.listTenants.data.length > 0) {
+                tenants = response.listTenants.data.map((tenant: any) => {
                     return {
                         name: tenant.accountOwnerName,
                         email: tenant.email,
                         phoneNumber: tenant.phoneNumber,
+                        organizationName: tenant.organizationName,
                         noOfProductManager: tenant.productManagers.length,
                         noOfTests: tenant.testCount,
-                        createdDate: this.dateUtil.format(tenant.createdAt, 'lll')
+                        createdDate: this.dateUtil.format(tenant.createdAt, 'Do MMM YYYY')
                     }
                 })
             }
@@ -106,7 +106,7 @@ export class TenantViewmodel extends BaseViewModel {
                 ...this.state,
                 isLoading: false,
                 tenants,
-                totalCount: response.listTenants.length
+                totalCount: response.listTenants.totalCount
             })
 
         } catch (error) {
@@ -124,6 +124,7 @@ export class TenantViewmodel extends BaseViewModel {
             { name: 'Name', id: 'name' },
             { name: 'Email', id: 'email' },
             { name: 'Phone Number', id: 'phoneNumber' },
+            { name: 'Organization Name', id: 'organizationName' },
             { name: '#No Of Product Managers', id: 'noOfProductManager' },
             { name: '#No Of Test', id: 'noOfTests' },
             { name: 'Created Date', id: 'createdDate' }
@@ -152,7 +153,7 @@ export class TenantViewmodel extends BaseViewModel {
                 ...this.state,
                 tenantAccountOwnerNameError: Error('Please enter account owner name')
             })
-        } else if (this.validationUtils.isMobileNumberValid(this.state.tenantPhoneNumber)) {
+        } else if (!this.validationUtils.isMobileNumberValid(this.state.tenantPhoneNumber)) {
             this.setState({
                 ...this.state,
                 tenantPhoneNumberError: Error('Please enter phone number')

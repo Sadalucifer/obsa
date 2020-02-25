@@ -71,8 +71,8 @@ export class AdminViewModel extends BaseViewModel {
             { name: 'Name', id: 'name' },
             { name: 'Email', id: 'email' },
             { name: 'Phone Number', id: 'phoneNumber' },
-            { name: 'Action', id: 'action' },
             { name: 'Status', id: 'status' },
+            { name: 'Action', id: 'action' },
         ]
         return list
     }
@@ -160,8 +160,8 @@ export class AdminViewModel extends BaseViewModel {
                         name: admin.name,
                         email: admin.email,
                         phoneNumber: admin.phoneNumber,
-                        action: admin.administration.status === 1 ? 'Block' : admin.administration.status === 0 ? 'ReInvite' : 'Unblock',
                         status: admin.administration.status === 1 ? 'Active' : admin.administration.status === 0 ? 'Invite' : 'Block',
+                        action: admin.administration.status === 1 ? 'Block' : admin.administration.status === 0 ? 'ReInvite' : 'Unblock',
                     }
                 })
             }
